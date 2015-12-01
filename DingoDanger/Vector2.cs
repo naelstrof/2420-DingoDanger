@@ -2,8 +2,8 @@
 
 namespace DingoDanger {
     public class Vector2 {
-        public double x,y;
-        public Vector2( double ix, double iy ) {
+        public int x,y;
+        public Vector2( int ix, int iy ) {
             x = ix;
             y = iy;
         }
@@ -13,13 +13,13 @@ namespace DingoDanger {
         public static Vector2 operator-( Vector2 a, Vector2 b ) {
             return new Vector2( a.x-b.x, a.y-b.y );
         }
-        public static double operator*( Vector2 a, Vector2 b ) {
+        public static int operator*( Vector2 a, Vector2 b ) {
             return a.x * b.x + a.y * b.y;
         }
-        public static Vector2 operator*( Vector2 a, double b ) {
+        public static Vector2 operator*( Vector2 a, int b ) {
             return new Vector2( a.x*b, a.y*b );
         }
-        public static Vector2 operator/( Vector2 a, double b ) {
+        public static Vector2 operator/( Vector2 a, int b ) {
             return new Vector2( a.x/b, a.y/b );
         }
         public double Distance( Vector2 b ) {

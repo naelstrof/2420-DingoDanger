@@ -1,18 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using CursesSharp;
+using System;
+using System.Linq;
 
 namespace DingoDanger {
     public static class World {
         // Initialize each row.
         public static int width;
         public static int height;
+        public static Random rng = new Random();
         public static Entity[][] grid;
-        public static LinkedList<Entity> dyna = new LinkedList<Entity>();
+        private static LinkedList<Entity> dyna = new LinkedList<Entity>();
+        public static LinkedList<Entity> merge = new LinkedList<Entity>();
+        public static int Rand(int min, int max) {
+            return rng.Next (min, max+1);
+        }
         public static void Update( double dt ) {
+            dyna = new LinkedList<Entity>(dyna.Concat(merge));
             foreach( Entity ent in dyna ) {
                 ent.Update( dt );
             }
+        }
+        public static void AddDynamicEntity( Entity ent ) {
+            merge.AddLast( ent );
         }
         public static void Load( string map ) {
             // Get the width and height of our new map.
@@ -38,16 +49,28 @@ namespace DingoDanger {
                     x++;
                     continue;
                 }
+                if ( sprite == 'd' ) {
+                    dyna.AddLast( new DingoSpawner( " ", x, y ) );
+                    grid[y][x] = new Entity( " ", x, y );
+                    x++;
+                    continue;
+                }
                 // Got an actual sprite
                 grid[y][x] = new Entity( sprite.ToString(), x, y );
                 x++;
             }
         }
         public static bool Passable( int x, int y ) {
+            if ( x >= width || x < 0 ) {
+                return false;
+            }
+            if ( y >= height || y < 0 ) {
+                return false;
+            }
             return grid[y][x].sprite != "#";
         }
         public static bool Passable( Vector2 p ) {
-            return grid[(int)p.y][(int)p.x].sprite != "#";
+            return Passable( p.x, p.y );
         }
         public static void LoadFile( string path ) {
             Load( File.ReadAllText( path ) );
