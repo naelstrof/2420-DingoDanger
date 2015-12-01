@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using CursesSharp;
 
 namespace DingoDanger {
@@ -7,6 +8,7 @@ namespace DingoDanger {
         public int width;
         public int height;
         public Entity[][] grid;
+        public LinkedList<Entity> dyna = new LinkedList<Entity>();
         public World(string path) {
             LoadFile(path);
         }
@@ -28,6 +30,7 @@ namespace DingoDanger {
                     x = 0;
                     continue;
                 }
+                // Add special cases here (spawners, guns, etc)
                 // Got an actual sprite
                 grid[y][x] = new Entity( sprite.ToString(), x, y );
                 x++;

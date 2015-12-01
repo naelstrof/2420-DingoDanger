@@ -40,6 +40,8 @@
     <Compile Include="World.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Vector2.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Keyboard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

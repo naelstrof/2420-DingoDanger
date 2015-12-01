@@ -14,8 +14,9 @@ namespace DingoDanger
             World world = new World("map.txt");
             bool running = true;
             while( running ) {
-                // Game logic
-
+                Keyboard.UpdateKeys();
+                // Game logic goes here!
+                Keyboard.Reset ();
                 // Game render
                 world.Draw();
                 Curses.NapMs(100);
