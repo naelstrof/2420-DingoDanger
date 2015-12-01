@@ -13,6 +13,7 @@ namespace DingoDanger
             // Init world.
             World.LoadFile( "map.txt" );
             bool running = true;
+            DogSong.Play();
             while( running ) {
                 Keyboard.UpdateKeys();
                 World.Update( 100 );
