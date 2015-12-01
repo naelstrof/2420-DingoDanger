@@ -3,21 +3,18 @@ using System.IO;
 using CursesSharp;
 
 namespace DingoDanger {
-    public class World {
+    public static class World {
         // Initialize each row.
-        public int width;
-        public int height;
-        public Entity[][] grid;
-        public LinkedList<Entity> dyna = new LinkedList<Entity>();
-        public World(string path) {
-            LoadFile(path);
-        }
-        public void Update( double dt ) {
+        public static int width;
+        public static int height;
+        public static Entity[][] grid;
+        public static LinkedList<Entity> dyna = new LinkedList<Entity>();
+        public static void Update( double dt ) {
             foreach( Entity ent in dyna ) {
                 ent.Update( dt );
             }
         }
-        public void Load( string map ) {
+        public static void Load( string map ) {
             // Get the width and height of our new map.
             width = map.IndexOf('\n');
             height = map.Split('\n').Length;
@@ -46,10 +43,16 @@ namespace DingoDanger {
                 x++;
             }
         }
-        public void LoadFile( string path ) {
+        public static bool Passable( int x, int y ) {
+            return grid[y][x].sprite != "#";
+        }
+        public static bool Passable( Vector2 p ) {
+            return grid[(int)p.y][(int)p.x].sprite != "#";
+        }
+        public static void LoadFile( string path ) {
             Load( File.ReadAllText( path ) );
         }
-        public void Draw() {
+        public static void Draw() {
             // Loop through each column, then nestedly loop through each element in the column.
             // This will draw the "map".
             for (int x=0;x<width;x++ ) {

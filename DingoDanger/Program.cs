@@ -11,14 +11,14 @@ namespace DingoDanger
             Stdscr.Blocking = false;
             Curses.Echo = false;
             // Init world.
-            World world = new World("map.txt");
+            World.LoadFile( "map.txt" );
             bool running = true;
             while( running ) {
                 Keyboard.UpdateKeys();
-                world.Update( 100 );
+                World.Update( 100 );
                 Keyboard.Reset ();
                 // Game render
-                world.Draw();
+                World.Draw();
                 Curses.NapMs(100);
                 Stdscr.Move(Curses.Lines - 1, Curses.Cols - 1);
                 Stdscr.Refresh();
