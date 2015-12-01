@@ -12,6 +12,11 @@ namespace DingoDanger {
         public World(string path) {
             LoadFile(path);
         }
+        public void Update( double dt ) {
+            foreach( Entity ent in dyna ) {
+                ent.Update( dt );
+            }
+        }
         public void Load( string map ) {
             // Get the width and height of our new map.
             width = map.IndexOf('\n');
@@ -30,7 +35,12 @@ namespace DingoDanger {
                     x = 0;
                     continue;
                 }
-                // Add special cases here (spawners, guns, etc)
+                if ( sprite == '@' ) {
+                    dyna.AddLast( new Player( sprite.ToString(), x, y ) );
+                    grid[y][x] = new Entity( " ", x, y );
+                    x++;
+                    continue;
+                }
                 // Got an actual sprite
                 grid[y][x] = new Entity( sprite.ToString(), x, y );
                 x++;
@@ -41,19 +51,19 @@ namespace DingoDanger {
         }
         public void Draw() {
             // Loop through each column, then nestedly loop through each element in the column.
+            // This will draw the "map".
             for (int x=0;x<width;x++ ) {
                 for (int y=0;y<height;y++ ) {
                     Entity ent = grid[y][x];
                     if ( ent != null ) {
-                        AddStr( y, x, ent.sprite );
+                        ent.Draw();
                     }
                 }
             }
-        }
-        private static void AddStr(int y, int x, string str)
-        {
-            if (x >= 0 && x < Curses.Cols && y >= 0 && y < Curses.Lines)
-                Stdscr.Add(y, x, str);
+            // Now for everything that moves. They will draw over the map.
+            foreach( Entity ent in dyna ) {
+                ent.Draw();
+            }
         }
     }
 }

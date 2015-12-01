@@ -15,7 +15,7 @@ namespace DingoDanger
             bool running = true;
             while( running ) {
                 Keyboard.UpdateKeys();
-                // Game logic goes here!
+                world.Update( 100 );
                 Keyboard.Reset ();
                 // Game render
                 world.Draw();

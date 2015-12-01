@@ -16,6 +16,9 @@ namespace DingoDanger {
         public static double operator*( Vector2 a, Vector2 b ) {
             return a.x * b.x + a.y * b.y;
         }
+        public static Vector2 operator*( Vector2 a, double b ) {
+            return new Vector2( a.x*b, a.y*b );
+        }
         public static Vector2 operator/( Vector2 a, double b ) {
             return new Vector2( a.x/b, a.y/b );
         }
