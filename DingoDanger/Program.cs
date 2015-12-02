@@ -11,15 +11,14 @@ namespace DingoDanger
             Stdscr.Blocking = false;
             Curses.Echo = false;
             // Init world.
-            World.LoadFile( "map.txt" );
+            StateMachine.Switch( new IntroState() );
             bool running = true;
-            DogSong.Play();
             while( running ) {
                 Keyboard.UpdateKeys();
-                World.Update( 100 );
+                StateMachine.Update( 100 );
                 Keyboard.Reset ();
                 // Game render
-                World.Draw();
+                StateMachine.Draw();
                 Curses.NapMs(100);
                 Stdscr.Move(Curses.Lines - 1, Curses.Cols - 1);
                 Stdscr.Refresh();

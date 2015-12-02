@@ -17,8 +17,10 @@ namespace DingoDanger {
             return rng.Next (min, max+1);
         }
         public static void Update( double dt ) {
+            // We can't modify the list while enumerating, so I
+            // do this merge mumbo jumbo as a work-around.
             dyna = new LinkedList<Entity>(dyna.Concat(merge));
-			merge = new LinkedList<Entity>();
+            merge = new LinkedList<Entity>();
             foreach( Entity ent in dyna ) {
                 ent.Update( dt );
             }
@@ -68,7 +70,7 @@ namespace DingoDanger {
             if ( y >= height || y < 0 ) {
                 return false;
             }
-            return grid[y][x].sprite != "#";
+            return grid[y][x].sprite == " ";
         }
         public static bool Passable( Vector2 p ) {
             return Passable( p.x, p.y );

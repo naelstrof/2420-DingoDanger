@@ -11,5 +11,8 @@ namespace DingoDanger {
             player = new SoundPlayer(file);
             player.PlayLooping();
         }
+        public static void Stop() {
+            player.Stop();
+        }
     }
 }
