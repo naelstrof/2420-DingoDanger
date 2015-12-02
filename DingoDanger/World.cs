@@ -114,6 +114,15 @@ namespace DingoDanger {
             }
             return null;
         }
+        public static Entity GetTile( Vector2 p ) {
+            if ( p.x >= width || p.x < 0 ) {
+                return null;
+            }
+            if ( p.y >= height || p.y < 0 ) {
+                return null;
+            }
+            return grid[p.y][p.x];
+        }
         public static void LoadFile( string path ) {
             Load( File.ReadAllText( path ) );
         }
