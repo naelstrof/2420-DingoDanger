@@ -49,6 +49,7 @@
     <Compile Include="StateMachine.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="IntroState.cs" />
+    <Compile Include="LoseState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

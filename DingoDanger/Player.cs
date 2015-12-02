@@ -13,6 +13,9 @@ namespace DingoDanger {
             if ( World.Passable( pos + newPos ) ) {
                 pos = pos + new Vector2( horz, vert );
             }
+            if ( World.TouchingDog( pos ) ) {
+                StateMachine.Switch( new LoseState() );
+            }
         }
     }
 }

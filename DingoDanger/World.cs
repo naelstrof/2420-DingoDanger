@@ -28,6 +28,13 @@ namespace DingoDanger {
         public static void AddDynamicEntity( Entity ent ) {
             merge.AddLast( ent );
         }
+        public static void Clear() {
+            dyna = new LinkedList<Entity>();
+            merge = new LinkedList<Entity>();
+            grid = null;
+            width = 0;
+            height = 0;
+        }
         public static void Load( string map ) {
             // Get the width and height of our new map.
             width = map.IndexOf('\n');
@@ -74,6 +81,17 @@ namespace DingoDanger {
         }
         public static bool Passable( Vector2 p ) {
             return Passable( p.x, p.y );
+        }
+        public static bool TouchingDog( Vector2 p ) {
+            foreach( Entity dog in dyna ) {
+                if ( !(dog is Dingo) ) {
+                    continue;
+                }
+                if ( dog.pos == p ) {
+                    return true;
+                }
+            }
+            return false;
         }
         public static void LoadFile( string path ) {
             Load( File.ReadAllText( path ) );

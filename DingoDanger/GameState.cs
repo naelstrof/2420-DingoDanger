@@ -7,6 +7,7 @@ namespace DingoDanger {
             DogSong.Play();
         }
         public override void TearDown() {
+            World.Clear();
             DogSong.Stop();
         }
         public override void Update( double dt ) {
