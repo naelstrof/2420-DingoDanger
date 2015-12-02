@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using CursesSharp;
 
 namespace DingoDanger {
@@ -33,7 +34,11 @@ namespace DingoDanger {
         public void DrawBlock( string text ) {
             int y = 0;
             foreach( string line in text.Split('\n') ) {
-                Stdscr.Add( y, 0, line );
+                try {
+                    Stdscr.Add( y, 0, line );
+                } catch( Exception e ) {
+                    // Don't error out just because you miss a few characters lmaoo
+                }
                 y++;
             }
         }

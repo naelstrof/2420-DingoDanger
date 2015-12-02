@@ -19,7 +19,10 @@ namespace DingoDanger {
         private static void AddStr(int y, int x, string str) {
             x -= str.Length/2;
             if (x >= 0 && x < Curses.Cols && y >= 0 && y < Curses.Lines) {
-                Stdscr.Add(y, x, str);
+                try {
+                    Stdscr.Add(y, x, str);
+                } catch ( Exception e ) {
+                }
             }
         }
     }
