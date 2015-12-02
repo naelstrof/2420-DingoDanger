@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CursesSharp;
 
 namespace DingoDanger {
     public static class World {
@@ -63,6 +64,18 @@ namespace DingoDanger {
                     x++;
                     continue;
                 }
+                if ( sprite == 'E' ) {
+                    dyna.AddLast( new ExplodeyGun( sprite.ToString(), x, y ) );
+                    grid[y][x] = new Entity( " ", x, y );
+                    x++;
+                    continue;
+                }
+                if ( sprite == 'B' ) {
+                    dyna.AddLast( new CannonGun( sprite.ToString(), x, y ) );
+                    grid[y][x] = new Entity( " ", x, y );
+                    x++;
+                    continue;
+                }
                 if ( sprite == 'd' ) {
                     dyna.AddLast( new DingoSpawner( " ", x, y ) );
                     grid[y][x] = new Entity( " ", x, y );
@@ -81,7 +94,7 @@ namespace DingoDanger {
             if ( y >= height || y < 0 ) {
                 return false;
             }
-            return grid[y][x].sprite == " ";
+            return (grid[y][x].sprite == " " || grid[y][x].sprite == "p" );
         }
         public static bool Passable( Vector2 p ) {
             return Passable( p.x, p.y );
@@ -102,6 +115,28 @@ namespace DingoDanger {
             if ( node != null && !removeQueue.Contains( node ) ) {
                 removeQueue.AddFirst( node );
             }
+        }
+        public static LinkedList<Dingo> DingoCollides( Vector2 p, int distance ) {
+            LinkedList<Dingo> dogs = new LinkedList<Dingo>();
+            foreach( Entity dog in dyna ) {
+                if ( !(dog is Dingo) ) {
+                    continue;
+                }
+                if ( dog.pos.x >= p.x - distance && dog.pos.x <= p.x + distance ) {
+                    if ( dog.pos.y >= p.y - distance && dog.pos.y <= p.y + distance ) {
+                        dogs.AddFirst( (Dingo)dog );
+                    }
+                }
+            }
+            return dogs;
+        }
+        public static Player GetPlayer() {
+            foreach( Entity player in dyna ) {
+                if ( player is Player ) {
+                    return (Player)player;
+                }
+            }
+            return null;
         }
         public static Dingo GetDog( Vector2 p ) {
             foreach( Entity dog in dyna ) {
@@ -140,6 +175,13 @@ namespace DingoDanger {
             // Now for everything that moves. They will draw over the map.
             foreach( Entity ent in dyna ) {
                 ent.Draw();
+            }
+
+            // Status bar :v
+            string status = "HP: Alive\tGun: " + GetPlayer().gun;
+            try {
+                Stdscr.Add(23, 0, status);
+            } catch ( Exception e ) {
             }
         }
     }

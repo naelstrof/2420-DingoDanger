@@ -13,6 +13,7 @@ namespace DingoDanger {
             intro2 = File.ReadAllText( "intro_02.txt" );
         }
         public override void TearDown() {
+            Stdscr.Clear();
         }
         public override void Update( double dt ) {
             passedTime += dt;

@@ -3,6 +3,7 @@
 namespace DingoDanger {
     public class Bullet : Entity {
         public Vector2 direction;
+        public int penetration = 3;
         public Bullet( string spr, int x, int y ) {
             pos = new Vector2( x, y );
             // Heh, unicode BULLET ;)
@@ -12,7 +13,9 @@ namespace DingoDanger {
             Dingo dog = World.GetDog( pos + direction );
             if ( dog != null ) {
                 dog.Kill();
-                Kill();
+                if ( --penetration == 0 ) {
+                    Kill();
+                }
                 return;
             }
             if ( !World.Passable( pos + direction ) ) {

@@ -14,6 +14,7 @@ namespace DingoDanger {
             DogSong.Lose();
         }
         public override void TearDown() {
+            Stdscr.Clear();
             DogSong.Stop();
         }
         public override void Update( double dt ) {

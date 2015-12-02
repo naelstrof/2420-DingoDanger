@@ -7,6 +7,9 @@ namespace DingoDanger {
         public static ArrayList keys = new ArrayList();
         // Since keypresses are like a stream, we "update" by getting all the
         // pressed key codes since the last UpdateKeys().
+        // There's no asynchronous key inputs that is also multi-platform without
+        // being a huge game engine like XNA so we're kinda screwed for feasible input
+        // methods...
         public static void UpdateKeys() {
             int c = Stdscr.GetChar();
             while( c != -1 ) {

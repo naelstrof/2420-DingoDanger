@@ -2,6 +2,7 @@
 
 namespace DingoDanger {
     public class Player : Entity {
+        public string gun = "Water Gun";
         public Player( string spr, int x, int y ) {
             pos = new Vector2( x, y );
             sprite = spr;
@@ -28,12 +29,32 @@ namespace DingoDanger {
             int bv = -Convert.ToInt32( Keyboard.KeyDown( 65 ) ) + Convert.ToInt32( Keyboard.KeyDown( 66 ) );
             int bh = -Convert.ToInt32( Keyboard.KeyDown( 68 ) ) + Convert.ToInt32( Keyboard.KeyDown( 67 ) );
             if ( bv != 0 || bh != 0 ) {
-                Bullet b = new Bullet( "", pos.x, pos.y );
-                b.direction = new Vector2( bh, bv );
-                World.AddDynamicEntity( b );
+                Shoot( new Vector2( bh, bv ) );
             }
             if ( World.TouchingDog( pos ) ) {
                 StateMachine.Switch( new LoseState() );
+            }
+        }
+        public void Shoot( Vector2 dir ) {
+            switch( gun ) {
+                case "Water Gun": {
+                    WaterBullet b = new WaterBullet( "~", pos.x, pos.y );
+                    b.direction = dir;
+                    World.AddDynamicEntity( b );
+                    break;
+                                  }
+                case "Cannon Gun": {
+                    Bullet b = new Bullet( "~", pos.x, pos.y );
+                    b.direction = dir;
+                    World.AddDynamicEntity( b );
+                    break;
+                                  }
+                case "Confetti Gun": {
+                    ExplodeyBullet b = new ExplodeyBullet( "*", pos.x, pos.y );
+                    b.direction = dir;
+                    World.AddDynamicEntity( b );
+                    break;
+                                  }
             }
         }
     }

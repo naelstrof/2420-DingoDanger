@@ -1,4 +1,5 @@
 ﻿using System;
+using CursesSharp;
 
 namespace DingoDanger {
     public class GameState : State {
@@ -8,6 +9,7 @@ namespace DingoDanger {
         }
         public override void TearDown() {
             World.Clear();
+            Stdscr.Clear();
             DogSong.Stop();
         }
         public override void Update( double dt ) {

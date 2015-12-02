@@ -51,6 +51,11 @@
     <Compile Include="IntroState.cs" />
     <Compile Include="LoseState.cs" />
     <Compile Include="Bullet.cs" />
+    <Compile Include="Explosion.cs" />
+    <Compile Include="WaterBullet.cs" />
+    <Compile Include="ExplodeyBullet.cs" />
+    <Compile Include="ExplodeyGun.cs" />
+    <Compile Include="CannonGun.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
