@@ -18,6 +18,7 @@ namespace DingoDanger {
         }
         public static void Update( double dt ) {
             dyna = new LinkedList<Entity>(dyna.Concat(merge));
+			merge = new LinkedList<Entity>();
             foreach( Entity ent in dyna ) {
                 ent.Update( dt );
             }
