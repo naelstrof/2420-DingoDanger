@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using CursesSharp;
-using System;
 using System.Linq;
 
 namespace DingoDanger {
@@ -13,12 +12,17 @@ namespace DingoDanger {
         public static Entity[][] grid;
         private static LinkedList<Entity> dyna = new LinkedList<Entity>();
         public static LinkedList<Entity> merge = new LinkedList<Entity>();
+        public static LinkedList<LinkedListNode<Entity>> removeQueue = new LinkedList<LinkedListNode<Entity>>();
         public static int Rand(int min, int max) {
             return rng.Next (min, max+1);
         }
         public static void Update( double dt ) {
             // We can't modify the list while enumerating, so I
             // do this merge mumbo jumbo as a work-around.
+            foreach( LinkedListNode<Entity> node in removeQueue ) {
+                dyna.Remove( node );
+            }
+            removeQueue = new LinkedList<LinkedListNode<Entity>>();
             dyna = new LinkedList<Entity>(dyna.Concat(merge));
             merge = new LinkedList<Entity>();
             foreach( Entity ent in dyna ) {
@@ -92,6 +96,23 @@ namespace DingoDanger {
                 }
             }
             return false;
+        }
+        public static void Remove( Entity ent ) {
+            LinkedListNode<Entity> node = dyna.Find( ent );
+            if ( node != null && !removeQueue.Contains( node ) ) {
+                removeQueue.AddFirst( node );
+            }
+        }
+        public static Dingo GetDog( Vector2 p ) {
+            foreach( Entity dog in dyna ) {
+                if ( !(dog is Dingo) ) {
+                    continue;
+                }
+                if ( dog.pos == p ) {
+                    return (Dingo)dog;
+                }
+            }
+            return null;
         }
         public static void LoadFile( string path ) {
             Load( File.ReadAllText( path ) );
