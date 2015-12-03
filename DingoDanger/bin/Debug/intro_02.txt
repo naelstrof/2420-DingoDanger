@@ -11,7 +11,7 @@
 |                                                                              |
 |  -----_^^_----------------------------------------------------------------   |
 |      /|oo \   d     The Dingos are overrunning the city!                     |
-|     (_|  /_)       Use WASD to move and arrow keys to shoot!                 |
+|     (_|  /_)        Use WASD to move and IJKL to shoot!                      |
 |       `d/  \    _                                                            |
 |       |     \   \\        [                    ]                             |
 |        \||   \_  ))  d                                                       |

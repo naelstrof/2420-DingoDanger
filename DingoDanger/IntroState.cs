@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using CursesSharp;
+using System.Collections.Generic;
 
 namespace DingoDanger {
     public class IntroState : State {
@@ -34,13 +35,27 @@ namespace DingoDanger {
         }
         public void DrawBlock( string text ) {
             int y = 0;
-            foreach( string line in text.Split('\n') ) {
-                try {
-                    Stdscr.Add( y, 0, line );
-                } catch( Exception e ) {
-                    // Don't error out just because you miss a few characters lmaoo
+            int x = 0;
+            List<char> charList = new List<char>();
+            foreach (char character in text.ToCharArray()) {
+                if (character != '\n') { 
+                charList.Add(character);
                 }
-                y++;
+            }
+            for (int i = 1; i < 24; i++) {
+                int remover = i * 80;
+                charList.RemoveAt(remover);
+            }
+            foreach( char line in charList ) {
+                try {
+                    Stdscr.Add(y, x, line);
+                }
+                catch { }
+                x++;
+                if (x == 80) {
+                    y++;
+                    x = 0;
+                }
             }
         }
     }

@@ -26,8 +26,8 @@ namespace DingoDanger {
             }
 
             // Bullets!
-            int bv = -Convert.ToInt32( Keyboard.KeyDown( 65 ) ) + Convert.ToInt32( Keyboard.KeyDown( 66 ) );
-            int bh = -Convert.ToInt32( Keyboard.KeyDown( 68 ) ) + Convert.ToInt32( Keyboard.KeyDown( 67 ) );
+            int bv = -Convert.ToInt32( Keyboard.KeyDown( 105 ) ) + Convert.ToInt32( Keyboard.KeyDown( 107 ) );
+            int bh = -Convert.ToInt32( Keyboard.KeyDown( 106 ) ) + Convert.ToInt32( Keyboard.KeyDown( 108 ) );
             if ( bv != 0 || bh != 0 ) {
                 Shoot( new Vector2( bh, bv ) );
             }

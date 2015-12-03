@@ -182,10 +182,13 @@ namespace DingoDanger {
 
             // Status bar :v
             string status = "HP: Alive\tGun: " + GetPlayer().gun;
-            try {
-                Stdscr.Add(23, 0, status);
-            } catch ( Exception e ) {
+            int printPos = 0;
+
+            foreach (char character in status.ToCharArray()) {
+                Stdscr.Add(23, printPos, character);
+                printPos++;
             }
+            printPos = 0;
         }
     }
 }
