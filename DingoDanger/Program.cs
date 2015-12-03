@@ -1,4 +1,4 @@
-using System;
+using System.Diagnostics;
 using CursesSharp;
 
 namespace DingoDanger {
@@ -21,15 +21,22 @@ namespace DingoDanger {
             // Init world.
             StateMachine.Switch( new IntroState() );
             bool running = true;
+            Stopwatch time = new Stopwatch();
+            time.Start();
+            long spillover = 0;
             while( running ) {
-                Keyboard.UpdateKeys();
-                StateMachine.Update( 100 );
-                Keyboard.Reset ();
-                // Game render
-                StateMachine.Draw();
-                Curses.NapMs(100);
-                Stdscr.Move(Curses.Lines - 1, Curses.Cols - 1);
-                Stdscr.Refresh();
+                if ( time.ElapsedMilliseconds + spillover > 100 ) {
+                    Keyboard.UpdateKeys();
+                    StateMachine.Update( 100 );
+                    Keyboard.Reset ();
+                    // Game render
+                    StateMachine.Draw();
+                    Stdscr.Move(Curses.Lines - 1, Curses.Cols - 1);
+                    Stdscr.Refresh();
+
+                    spillover = (time.ElapsedMilliseconds + spillover) - 100;
+                    time.Restart();
+                }
             }
             // Game end!
             Curses.EndWin();

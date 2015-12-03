@@ -2,8 +2,8 @@
 
 namespace DingoDanger {
     public class Bullet : Entity {
-        public Vector2 direction;
         public int penetration = 3;
+        public Vector2 direction;
         public Bullet( string spr, int x, int y ) {
             pos = new Vector2( x, y );
             // Heh, unicode BULLET ;)

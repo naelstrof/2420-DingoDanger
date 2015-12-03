@@ -13,6 +13,7 @@ namespace DingoDanger {
             DogSong.Stop();
         }
         public override void Update( double dt ) {
+			AI.GeneratePaths ();
             World.Update( dt );
         }
         public override void Draw() {

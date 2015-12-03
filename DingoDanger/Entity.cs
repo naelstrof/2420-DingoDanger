@@ -3,6 +3,7 @@ using CursesSharp;
 
 namespace DingoDanger {
     public class Entity {
+        public Entity cameFrom;
         public Vector2 pos;
         public string sprite = "•";
         public int color = 7;

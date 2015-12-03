@@ -156,6 +156,9 @@ namespace DingoDanger {
             if ( p.y >= height || p.y < 0 ) {
                 return null;
             }
+            if ( grid == null ) {
+                return null;
+            }
             return grid[p.y][p.x];
         }
         public static void LoadFile( string path ) {
