@@ -1,7 +1,0 @@
-C:\Users\Austin\Documents\EAE2420\C# Homeworks\2420-DingoDanger\DingoDanger\bin\Debug\DingoDanger.exe
-C:\Users\Austin\Documents\EAE2420\C# Homeworks\2420-DingoDanger\DingoDanger\bin\Debug\DingoDanger.pdb
-C:\Users\Austin\Documents\EAE2420\C# Homeworks\2420-DingoDanger\DingoDanger\obj\x86\Debug\DingoDanger.csprojResolveAssemblyReference.cache
-C:\Users\Austin\Documents\EAE2420\C# Homeworks\2420-DingoDanger\DingoDanger\obj\x86\Debug\DingoDanger.exe
-C:\Users\Austin\Documents\EAE2420\C# Homeworks\2420-DingoDanger\DingoDanger\obj\x86\Debug\DingoDanger.pdb
-C:\Users\Austin\My Documents\eae2420\C# Homeworks\2420-DingoDanger\DingoDanger\obj\x86\Debug\DingoDanger.exe
-C:\Users\Austin\My Documents\eae2420\C# Homeworks\2420-DingoDanger\DingoDanger\obj\x86\Debug\DingoDanger.pdb
