@@ -35,29 +35,26 @@ namespace DingoDanger {
             }
             DrawBlock( lose2 );
         }
-        public void DrawBlock(string text) {
+        public void DrawBlock( string text ) {
             int y = 0;
             int x = 0;
-            List<char> charList = new List<char>();
-            foreach (char character in text.ToCharArray()) {
-                if (character != '\n') {
-                    charList.Add(character);
+            // This actually removes all new lines
+            string[] lines = text.Split( '\n' );
+            foreach( string line in lines ) {
+                foreach( char c in line.ToCharArray() ) {
+                    if ( x >= 80 ) {
+                        continue;
+                    }
+                    if ( y >= 24 ) {
+                        break;
+                    }
+                    try {
+                        Stdscr.Add(y, x, c);
+                    } catch { }
+                    x++;
                 }
-            }
-            for (int i = 1; i < 24; i++) {
-                int remover = i * 80;
-                charList.RemoveAt(remover);
-            }
-            foreach (char line in charList) {
-                try {
-                    Stdscr.Add(y, x, line);
-                }
-                catch { }
-                x++;
-                if (x == 80) {
-                    y++;
-                    x = 0;
-                }
+                x = 0;
+                y++;
             }
         }
     }

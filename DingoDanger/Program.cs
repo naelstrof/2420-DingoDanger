@@ -12,6 +12,7 @@ namespace DingoDanger {
             Curses.InitScr();
             Stdscr.Blocking = false;
             Curses.Echo = false;
+            Stdscr.Keypad = true;
             if (Curses.HasColors) {
                 Curses.StartColor();
                 for (short i = 1; i < 8; ++i) {

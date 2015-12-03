@@ -4,7 +4,8 @@ using CursesSharp;
 namespace DingoDanger {
     public class GameState : State {
         public override void SetUp() {
-            World.LoadFile( "map_01.txt" );
+            int rand = World.Rand(1,3);
+            World.LoadFile( "map_0" + rand + ".txt" );
             DogSong.Play();
         }
         public override void TearDown() {

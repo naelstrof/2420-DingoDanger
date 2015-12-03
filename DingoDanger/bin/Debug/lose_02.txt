@@ -1,24 +1,24 @@
-﻿█████  ███          ███   ██████████████████████████████████████████████████████
-█████  ███          ███   ██████████████████████████████████████████████████████
-█████                     ██████████        ████████████████████████████████████
-█████                       ████████  BARK  ████████████████████████████████████
-█████                       ████████        ████████████████████████████████████
-██     ███     ███             █████████████████████████████████████████████████
-██     ███     ███             █████████████████████████████████████████████████
-██                               ███████████████   █████████████████████████████
-██        █████                        █████████   █████████████████████████████
-██        █████                        █████████   █████████████████████████████
-██   ██   ███     ██                               █████████████████████████████
-██   ██   ███     ██                               █████████████████████████████
-██     ███████████                               ███████████████████████████████
-██                                               ███            ████████████████
-██                                               ███  YOU LOSE  ████████████████
-██                                               ███            ████████████████
-██                                               ███████████████████████████████
-██                                               ███████████████████████████████
-██                                               ███████████████████████████████
-██                                               ███████████████████████████████
-██                                            ██████████████████████████████████
-█████                                         ██████████████████████████████████
-█████                                         ██████████████████████████████████
-HP: DOGGED  ████████████████████████████████████████████████████████████████████
+﻿XXXXX  XXX          XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX  XXX          XXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX                     XXXXXXXXXX        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX                       XXXXXXXX  BARK  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX                       XXXXXXXX        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX     XXX     XXX             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX     XXX     XXX             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                               XXXXXXXXXXXXXXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX        XXXXX                        XXXXXXXXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX        XXXXX                        XXXXXXXXX   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX   XX   XXX     XX                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX   XX   XXX     XX                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX     XXXXXXXXXXX                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                               XXX            XXXXXXXXXXXXXXXX
+XX                                               XXX  YOU LOSE  XXXXXXXXXXXXXXXX
+XX                                               XXX            XXXXXXXXXXXXXXXX
+XX                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXX                                         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+HP: DOGGED  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
