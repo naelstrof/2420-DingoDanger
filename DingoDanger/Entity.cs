@@ -31,8 +31,7 @@ namespace DingoDanger {
                 if (x >= 0 && x < Curses.Cols && y >= 0 && y < Curses.Lines) {
                     try {
                         Stdscr.Add(y, x, line);
-                    } catch ( Exception e ) {
-                    }
+                    } catch { }
                 }
                 y++;
             }

@@ -36,6 +36,7 @@ namespace DingoDanger {
         public static void Clear() {
             dyna = new LinkedList<Entity>();
             merge = new LinkedList<Entity>();
+            removeQueue = new LinkedList<LinkedListNode<Entity>>();
             grid = null;
             width = 0;
             height = 0;
