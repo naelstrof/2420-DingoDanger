@@ -10,6 +10,9 @@ namespace DingoDanger {
         }
         public override void Update( double dt ) {
             Player p = World.GetPlayer();
+            if ( p == null ) {
+                return;
+            }
             if ( p.pos == pos ) {
                 p.gun = "Confetti Gun";
                 Kill();
