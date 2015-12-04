@@ -22,8 +22,30 @@ namespace DingoDanger {
             int vert = -Convert.ToInt32( Keyboard.KeyDown( 119 ) ) + Convert.ToInt32( Keyboard.KeyDown( 115 ) );
             int horz = -Convert.ToInt32( Keyboard.KeyDown( 97 ) ) + Convert.ToInt32( Keyboard.KeyDown( 100 ) );
             Vector2 newPos = new Vector2( horz, vert );
-            if ( World.Passable( pos + newPos ) ) {
-                pos = pos + new Vector2( horz, vert );
+            if (World.Passable(pos + newPos)) {
+                pos = pos + new Vector2(horz, vert);
+            }
+            else {
+                if ((pos + newPos).x > World.width - 3) {
+                    if (World.Passable(1, pos.y)) {
+                        pos.x = 1;
+                    }
+                }
+                if ((pos + newPos).x <= 0) {
+                    if (World.Passable(World.width - 3, pos.y)) {
+                        pos.x = World.width - 3;
+                    }
+                }
+                if ((pos + newPos).y >= World.height - 2) {
+                    if (World.Passable(pos.x, 2)) {
+                        pos.y = 1;
+                    }
+                }
+                if ((pos + newPos).y <= 0) {
+                    if (World.Passable(pos.x, World.height - 3)) {
+                        pos.y = World.height - 3;
+                    }
+                }
             }
 
             // Bullets!
