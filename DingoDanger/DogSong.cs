@@ -12,7 +12,8 @@ namespace DingoDanger {
             player.PlayLooping();
         }
         public static void Lose() {
-            var file = new FileStream ("lose.wav", FileMode.Open, FileAccess.Read, FileShare.Read);
+            int rand = World.Rand (0, 1);
+            var file = new FileStream ("lose"+rand+".wav", FileMode.Open, FileAccess.Read, FileShare.Read);
             player = new SoundPlayer(file);
             player.Play();
         }

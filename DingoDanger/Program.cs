@@ -28,6 +28,9 @@ namespace DingoDanger {
             while( running ) {
                 if ( time.ElapsedMilliseconds + spillover > 100 ) {
                     Keyboard.UpdateKeys();
+                    if ( Keyboard.KeyDown( 27 ) ) {
+                        running = false;
+                    }
                     StateMachine.Update( 100 );
                     Keyboard.Reset ();
                     // Game render
