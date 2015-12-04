@@ -27,11 +27,12 @@ namespace DingoDanger {
             }
 
             // Bullets!
-            float bv = -Convert.ToInt32( Keyboard.KeyDown( 105 ) ) + Convert.ToInt32( Keyboard.KeyDown( 107 ) );
-            float bh = -Convert.ToInt32( Keyboard.KeyDown( 106 ) ) + Convert.ToInt32( Keyboard.KeyDown( 108 ) );
+            float bv, bh;
+            bv = -Convert.ToInt32( Keyboard.KeyDown( 105 ) ) + Convert.ToInt32( Keyboard.KeyDown( 107 ) );
+            bh = -Convert.ToInt32( Keyboard.KeyDown( 106 ) ) + Convert.ToInt32( Keyboard.KeyDown( 108 ) );
             bv += -Convert.ToInt32( Keyboard.KeyDown( 259 ) ) + Convert.ToInt32( Keyboard.KeyDown( 258 ) );
             bh += -Convert.ToInt32( Keyboard.KeyDown( 260 ) ) + Convert.ToInt32( Keyboard.KeyDown( 261 ) );
-            if ( Keyboard.MouseDown() ){
+            if ( Keyboard.MouseDown() && bh == 0 && bv == 0 ){
                 Vector2 mp = Keyboard.GetMouse();
                 bh = mp.x-pos.x;
                 bv = mp.y-pos.y;
