@@ -33,5 +33,8 @@ namespace DingoDanger {
             double dy = y-b.y;
             return Math.Sqrt( dx*dx + dy*dy );
         }
+        public static explicit operator Vector2f( Vector2 foo ) {
+            return new Vector2f( (double)foo.x, (double)foo.y );
+        }
     }
 }

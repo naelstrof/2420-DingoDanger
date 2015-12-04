@@ -18,21 +18,30 @@ namespace DingoDanger {
         }
         public void Draw() {
             Stdscr.Attr = Attrs.NORMAL | Curses.COLOR_PAIR(color) | attrs;
-            DrawBlock( (int)pos.x, (int)pos.y, sprite );
+            DrawBlock( pos.x, pos.y, sprite );
             Stdscr.Attr = Attrs.NORMAL;
         }
-        private static void DrawBlock(int x, int y, string str) {
-            string[] array = str.Split('\n');
-            int width = str.IndexOf('\n');
-            int height = array.Length;
+        public static void DrawBlock( int x, int y, string text ) {
+            string[] lines = text.Split( '\n' );
+            int width = text.IndexOf('\n');
+            int height = lines.Length;
             x -= width/2;
-            y -= height/2;
-            foreach( string line in array ) {
-                if (x >= 0 && x < Curses.Cols && y >= 0 && y < Curses.Lines) {
+            y -= width/2;
+            int rx = x;
+            foreach( string line in lines ) {
+                foreach( char c in line.ToCharArray() ) {
+                    if ( x >= 80 || x<0 ) {
+                        continue;
+                    }
+                    if ( y >= 24 || y<0 ) {
+                        continue;
+                    }
                     try {
-                        Stdscr.Add(y, x, line);
+                        Stdscr.Add(y, x, c);
                     } catch { }
+                    x++;
                 }
+                x = rx;
                 y++;
             }
         }

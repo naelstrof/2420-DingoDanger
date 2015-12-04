@@ -10,7 +10,7 @@ namespace DingoDanger {
             attrs = Attrs.BOLD;
         }
         public int curFrame = 0;
-        public static string[] frames = {"•", "*", "`.'\n.%`\n'.`", "*';\n%█X\n+*•" };
+        public static string[] frames = {"•", "*", "`.'\n.%`\n'.`", "*';\n%OX\n+*•" };
         public static int[] killDistance = { 0, 0, 1, 2 };
         public override void Update( double dt ) {
             foreach( Dingo dog in World.DingoCollides( pos, killDistance[curFrame] ) ) {

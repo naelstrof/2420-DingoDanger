@@ -11,14 +11,14 @@
 |                                                                              |
 |  -----_^^_----------------------------------------------------------------   |
 |      /|oo \   d     The Dingos are overrunning the city!                     |
-|     (_|  /_)    Use WASD to move and IJKL/Arrowkeys to shoot!                |
-|       `d/  \    _                                                            |
-|       |     \   \\        [                    ]                             |
-|        \||   \_  ))  d                                                       |
+|     (_|  /_)    Use WASD to move and IJKL/Arrows/Mouse to shoot!             |
+|       `d/  \        _                                                        |
+|       |     \     -//     [                    ]                             |
+|        \||   \_   // d                                                       |
 |     d   |||\ /  \//                                     This is you -> @     |
 |       _//|| _\   /                                                           |
-|      (_/(_|(____/       Bark!!                                               |
-|   d               d                                                          |
-|                                                                              |
+|      (_/(_|(____/       Bark!!               This is you -> @                |
+|                                              Confetti Gun -> E               |
+|     p              d                         Cannon Gun -> B                 |
 |                                                                              |
 *==============================================================================*
