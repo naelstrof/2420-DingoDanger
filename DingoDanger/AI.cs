@@ -45,7 +45,7 @@ namespace DingoDanger {
                             continue;
                         }
                         Entity target = World.grid[y][x];
-                        if ( !open.Contains( target ) && !closed.Contains( target ) && World.Passable( target.pos ) ) {
+                        if ( target != null && !open.Contains( target ) && !closed.Contains( target ) && World.Passable( target.pos ) ) {
                             target.cameFrom = ent;
                             open.Add( target );
                         }

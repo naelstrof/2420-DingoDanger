@@ -95,6 +95,9 @@ namespace DingoDanger {
             if ( y >= height || y < 0 ) {
                 return false;
             }
+            if ( grid[y][x] == null ) {
+                return false;
+            }
             return (grid[y][x].sprite == " " || grid[y][x].sprite == "p" );
         }
         public static bool Passable( Vector2 p ) {
