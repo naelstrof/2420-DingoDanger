@@ -6,7 +6,8 @@ A multi-platform, curses based, C#, top-down shooter with wonky controls because
 
 * Windows
     1. Download the appropriate binary package from the [Releases](https://github.com/naelstrof/2420-DingoDanger/releases) page.
-    2. The game must be ran through a terminal emulator like cmd.exe. A batch file has been provided to do this for you.
+    2. The game must be ran through a terminal emulator like cmd.exe. Double clicking on DingoDanger.exe will suffice, but using a better terminal emulator like cygwin or putty is recommended.
+
 * Linux
     1. Download the appropriate binary package from the [Releases](https://github.com/naelstrof/2420-DingoDanger/releases) page.
     2. Compile/install mono from your local repository.
