@@ -52,6 +52,9 @@ namespace DingoDanger {
             grid[y] = new Entity[width];
             // Not unicode-safe but I don't carEEE
             foreach( char sprite in map ) {
+                if ( x > width || y > height ) {
+                    break;
+                }
                 // If we've reached a new line, we're on a new row!
                 if ( sprite == '\n' ) {
                     y++;
